@@ -21,9 +21,10 @@ dock_item() {
   printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "$1"
 }
 
-runAsUser defaults write com.apple.terminal SecureKeyboardEntry -bool "true"
 runAsUser defaults delete com.apple.dock persistent-apps
-runAsUser defaults write com.apple.dock "show-recents" -bool "false"
+
+# Uncomment if you want to change this preference
+# runAsUser defaults write com.apple.dock "show-recents" -bool "false"
 
 runAsUser defaults write com.apple.dock persistent-apps -array \
   "$(dock_item /System/Applications/Launchpad.app)" \
