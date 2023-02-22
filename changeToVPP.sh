@@ -9,7 +9,7 @@
 # The library items must be assigned to the Mac
 #
 # Name your library item so that it matches the names below
-# Spaces in the app name is supported.
+# Spaces in the app name is supported
 
 apps=(
   "Pages"
