@@ -9,6 +9,7 @@
 # The library items must be assigned to the Mac
 #
 # Name your library item so that it matches the names below
+# Spaces in the app name is supported.
 
 apps=(
   "Pages"
@@ -16,10 +17,10 @@ apps=(
   "Keynote"
   "iMovie"
   "GarageBand"
-)
+  )
 
-(for app in "${apps[@]}"; do
-  if [ -e /Applications/$app.app ]; then
-    kandji library --item $app -F
+for app in "${apps[@]}"; do
+  if [ -e "/Applications/$app.app" ]; then
+    kandji library --item "$app" -F
 fi
 done
