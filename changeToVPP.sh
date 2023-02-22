@@ -11,15 +11,16 @@
 # Name your library item so that it matches the names below
 
 apps=(
-  "Pages"
-  "Numbers"
-  "Keynote"
-  "iMovie"
-  "GarageBand"
+  'Pages'
+  'Numbers'
+  'Keynote'
+  'iMovie'
+  'GarageBand'
+  'Okta Verify'
 )
 
-(for app in "${apps[@]}"; do
-  if [ -e /Applications/$app.app ]; then
-    kandji library --item $app -F
+for app in "${apps[@]}"; do
+  if [ -e /Applications/"$app".app ]; then
+    kandji library --item "$app" -F
 fi
 done
