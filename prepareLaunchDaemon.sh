@@ -32,7 +32,7 @@ cat <<EOF > "${launchdaemon_program_filepath}"
 autoload is-at-least
 installedOSversion=\$(sw_vers -productVersion)
 launchdaemon_filepath="/Library/LaunchDaemons/com.contoso.docksettings.plist"
-currentUser=\$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print \$3 }' )
+currentUser=\$(scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ { print $3 }')
 uid=\$(id -u "\$currentUser")
 echo "\$currentUser and \$uid"
 
