@@ -1,7 +1,7 @@
 #!/bin/zsh
 autoload is-at-least
 installedOSversion=$(sw_vers -productVersion)
-currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print \$3 }' )
+currentUser=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ { print $3 }')
 uid=$(id -u "$currentUser")
 echo "$currentUser and $uid"
 
