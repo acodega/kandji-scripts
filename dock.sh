@@ -1,5 +1,7 @@
 #!/bin/zsh
-currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print $3 }' )
+autoload is-at-least
+installedOSversion=$(sw_vers -productVersion)
+currentUser=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ { print \$3 }' )
 uid=$(id -u "$currentUser")
 echo "$currentUser and $uid"
 
@@ -21,9 +23,10 @@ dock_item() {
   printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "$1"
 }
 
+# Clear existing dock
 runAsUser defaults delete com.apple.dock persistent-apps
 
-# Uncomment if you want to change this preference
+# Uncomment next line if you want to not show recent apps on the dock
 # runAsUser defaults write com.apple.dock "show-recents" -bool "false"
 
 runAsUser defaults write com.apple.dock persistent-apps -array \
