@@ -54,6 +54,7 @@ dock_item() {
   printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>', "\$1"
 }
 
+# Clear existing dock
 runAsUser defaults delete com.apple.dock persistent-apps
 
 # Uncomment if you want to change this preference
